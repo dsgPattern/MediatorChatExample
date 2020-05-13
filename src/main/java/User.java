@@ -1,14 +1,15 @@
-public class User {
+public class User implements IUser{
     private int id;
     private String name;
-    private Server server;
+    private IServer server;
+    private boolean isBusy;
 
-    public User(int id, String name, Server server)
+    public User(int id, String name, IServer server)
     {
         this.id=id;
         this.name=name;
         this.server =server;
-        server.RegisterUser(this);
+        //server.RegisterUser(this);
     }
 
     public void SendMessage(int userId, String message)
@@ -28,4 +29,10 @@ public class User {
         return name;
     }
 
+    public void setIsBusy(boolean isBusy){
+        this.isBusy=isBusy;
+    }
+
+    public boolean getIsBusy(){return isBusy;
+    }
 }
